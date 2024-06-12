@@ -39,8 +39,6 @@ class TicketTest {
 //
 //        Ticket ticket = new InfraTicket(1, "Issue with login", reviewer);
 //
-//        Reviewer reviewerFromTicketObject = ticket.getReviewer();
-//
 //        assertThat(ticket.getReviewer().getName()).isEqualTo("Abhi");
 //        assertThat(ticket.getReviewer().getId()).isEqualTo(1);
 //    }
