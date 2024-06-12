@@ -6,10 +6,10 @@ import static java.util.Objects.isNull;
 
 public class PlanUtils {
 
-    private static final Map<Integer, Integer> PLANE_AMOUNT_TO_VALIDITY_DAYS_MAP;
+    private static final Map<Integer, Integer> PLAN_AMOUNT_TO_VALIDITY_DAYS_MAP;
 
     static {
-        PLANE_AMOUNT_TO_VALIDITY_DAYS_MAP = Map.ofEntries(
+        PLAN_AMOUNT_TO_VALIDITY_DAYS_MAP = Map.ofEntries(
                Map.entry(239, 28),
                Map.entry(666, 84),
                Map.entry(278, 24),
@@ -20,7 +20,7 @@ public class PlanUtils {
     }
 
     static Integer getValidityDays(Integer planAmount) {
-        Integer validityDays = PLANE_AMOUNT_TO_VALIDITY_DAYS_MAP.get(planAmount);
+        Integer validityDays = PLAN_AMOUNT_TO_VALIDITY_DAYS_MAP.get(planAmount);
         boolean inputPlanAmountIsInvalid = isNull(validityDays);
         if (inputPlanAmountIsInvalid){
             throw new InvalidPlanAmountException("Invalid plan amount");
