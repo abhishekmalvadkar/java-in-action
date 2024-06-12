@@ -5,21 +5,19 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
 
 
 public class MobileRechargeService {
 
+    public static final DateTimeFormatter PLAN_EXPIRY_DATE_FORMATTER = DateTimeFormatter.ofPattern("dd MMM yyyy");
     private static final Logger log = LoggerFactory.getLogger(MobileRechargeService.class);
 
-    public String recharge(Integer rechargeAmount){
-        Map<Integer, Integer> priceToValidityDaysMap = Map.of(239, 28);
+    public String recharge(Integer planAmount){
+        Integer validityDays = PlanUtils.getValidityDays(planAmount);
         LocalDate todayDate = LocalDate.now();
-        Integer validityDays = priceToValidityDaysMap.get(rechargeAmount);
         LocalDate planExpiryDate = todayDate.plusDays(validityDays);
-        DateTimeFormatter planExpiryDateFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
         String planExpiryMsg = String.format("Plan is valid till %s",
-                planExpiryDate.format(planExpiryDateFormatter));
+                planExpiryDate.format(PLAN_EXPIRY_DATE_FORMATTER));
         log.info("Recharge proceed successfully and {}", planExpiryMsg);
         return planExpiryMsg;
     }
