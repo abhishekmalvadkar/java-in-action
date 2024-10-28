@@ -13,6 +13,6 @@ class Challenge_2Test {
         BigDecimal salary = new BigDecimal("500.23");
         BigDecimal incrementAmount = new BigDecimal("130.45");
         assertThat(Challenge_2.run(salary, incrementAmount))
-                .isEqualTo("630.68");
+                .isEqualTo(new BigDecimal("630.68"));
     }
 }
