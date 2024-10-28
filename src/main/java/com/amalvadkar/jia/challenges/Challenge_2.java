@@ -11,4 +11,11 @@ public class Challenge_2 {
     public static BigDecimal run(BigDecimal salary , BigDecimal incrementAmount){
         return salary.add(incrementAmount);
     }
+
+    /*
+        Learning points
+        1) If you use float ot double for salary and incrementAmount then your test will fail
+        2) BigDecimal input and String as return type
+        3) BigDecimal input and BigDecimal as return type
+     */
 }
