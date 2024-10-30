@@ -2,7 +2,7 @@ package com.amalvadkar.jia.challenges;
 
 import java.math.BigDecimal;
 
-public class Challenge_1 {
+public class NameAgeAndAnnual {
 
     /*
         1. Name, age, and annual income

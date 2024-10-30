@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Challenge_3 {
+public class ImportTaskCsvValidation {
 
     /*
         Suppose you are getting some values from import csv file for task

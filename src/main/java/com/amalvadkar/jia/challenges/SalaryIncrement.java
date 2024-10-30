@@ -2,7 +2,7 @@ package com.amalvadkar.jia.challenges;
 
 import java.math.BigDecimal;
 
-public class Challenge_2 {
+public class SalaryIncrement {
 
     /*
         Take salary and increment amount
