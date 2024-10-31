@@ -15,7 +15,9 @@ public class LandCalculation {
     public static final BigDecimal ONE_ACRE_SQUARE_FEET = new BigDecimal("43560");
 
     public static BigDecimal calculateAcre(BigDecimal inputAcre) {
-        return inputAcre.divide(ONE_ACRE_SQUARE_FEET, 2, RoundingMode.HALF_UP); // 2 is scale means after point how many digits will come
+        int scale = 2;
+        RoundingMode roundingMode = RoundingMode.HALF_UP;
+        return inputAcre.divide(ONE_ACRE_SQUARE_FEET, scale, roundingMode);
     }
 }
 
