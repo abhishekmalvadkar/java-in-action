@@ -10,7 +10,9 @@ class LandCalculationTest {
 
     @Test
     void test_calculate_acre() {
-        assertThat(LandCalculation.calculateAcre(new BigDecimal("389767")))
-                .isEqualTo(new BigDecimal("8.95"));
+        BigDecimal inputSquareFeet = new BigDecimal("389767");
+        BigDecimal expectedAcer = new BigDecimal("8.95");
+        assertThat(LandCalculation.calculateAcre(inputSquareFeet))
+                .isEqualTo(expectedAcer);
     }
 }
