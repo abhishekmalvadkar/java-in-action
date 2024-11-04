@@ -3,46 +3,19 @@ package com.amalvadkar.jia.challenges;
 import java.time.LocalDate;
 import java.util.Objects;
 
-final class Task {
-    private final Long id;
-    private final String title;
-    private final LocalDate dueDate;
-    private final String status;
-
-    Task(Long id, String title, LocalDate dueDate, String status) {
-        this.id = id;
-        this.title = title;
-        this.dueDate = dueDate;
-        this.status = status;
-    }
-
-    public Long id() {
-        return id;
-    }
-
-    public String title() {
-        return title;
-    }
-
-    public LocalDate dueDate() {
-        return dueDate;
-    }
-
-    public String status() {
-        return status;
-    }
+record Task(Long id, String title, LocalDate dueDate, String status) {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null){
+        if (obj == null) {
             return false;
         }
 
-        if (this == obj){
+        if (this == obj) {
             return true;
         }
 
-        if (obj instanceof Task task){
+        if (obj instanceof Task task) {
 //            return this.id.equals(task.id) &&
 //                   this.title.equals(task.title) &&
 //                   this.dueDate.equals(task.dueDate) &&
@@ -54,6 +27,7 @@ final class Task {
         }
         return false;
     }
+
 }
 public class EqualsKata {
 
