@@ -16,7 +16,7 @@ public class TestAverage {
     public static List<String> result(BigDecimal... scores){
         BigDecimal scoreSum = Arrays.stream(scores)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        BigDecimal average = scoreSum.divide(BigDecimal.valueOf(scores.length),
+        BigDecimal average = scoreSum.divide(BigDecimal.valueOf(scores.length),2,
                 RoundingMode.HALF_UP);
 
 //        List<String> result = new ArrayList<>();
@@ -33,3 +33,10 @@ public class TestAverage {
 
 
 }
+
+/*
+    Learning point
+    -> Always use scale as 2 when use divide method of BigDecimal otherwise you will get unpredictable output with point
+    -> Use reduce method with Zero accumulator when need to do all value sum with BigDecimal
+    -> You can refactor legacy for loop with IntStream range method along with mapToObj() method and then collect
+ */

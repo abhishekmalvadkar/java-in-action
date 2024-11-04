@@ -27,5 +27,14 @@ class TestAverageTest {
                 "Score 2 : 23.78",
                 "Score 3 : 27.15",
                 "Average : 21.05");
+
+        assertThat(TestAverage.result(
+                new BigDecimal("80"),
+                new BigDecimal("60"),
+                new BigDecimal("90")
+        )).containsExactly("Score 1 : 80.00",
+                "Score 2 : 60.00",
+                "Score 3 : 90.00",
+                "Average : 76.67");
     }
 }
