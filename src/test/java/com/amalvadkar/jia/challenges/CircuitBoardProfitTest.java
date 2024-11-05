@@ -17,5 +17,9 @@ class CircuitBoardProfitTest {
         assertThat(CircuitBoardProfit.calculateProfitAmount(
                 new BigDecimal("60")
         )).isEqualTo(new BigDecimal("24.00"));
+
+        assertThat(CircuitBoardProfit.calculateProfitAmount(
+                new BigDecimal("100")
+        )).isEqualTo(new BigDecimal("40.00"));
     }
 }
