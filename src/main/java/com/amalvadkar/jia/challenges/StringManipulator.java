@@ -30,8 +30,8 @@ record CityResult(int totalCharacterInCity,String cityInUppercase, String cityIn
 
     -> When you want to return more than one thing from method then
        there are multiple ways
-       -> Use tuple
-       -> Use Map
+       -> Use tuple<String, Object>
+       -> Use Map<String, Object>
        -> Use custom class object - here you need to create all ceremonies like
           making them immutable, toString(), equals() and hashCode() etc..
        -> Use record (Best and type safe way and get all things out of the box)
