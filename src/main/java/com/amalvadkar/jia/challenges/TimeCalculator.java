@@ -43,14 +43,14 @@ public class TimeCalculator {
             double hour = noOfSeconds / NO_OF_SECONDS_IN_HOUR;
             return String.format("%.2f hour(s)", hour);
         }
-        if (isMoreThenOrEqualToMinuuteSeconds(noOfSeconds)){
+        if (isMoreThenOrEqualToMinuteSeconds(noOfSeconds)){
             double minute = noOfSeconds / NO_OF_SECONDS_IN_MINUTE;
             return String.format("%.2f minute(s)", minute);
         }
         return String.format("%d second(s)", noOfSeconds);
     }
 
-    private static boolean isMoreThenOrEqualToMinuuteSeconds(long noOfSeconds) {
+    private static boolean isMoreThenOrEqualToMinuteSeconds(long noOfSeconds) {
         return noOfSeconds >= NO_OF_SECONDS_IN_MINUTE;
     }
 
@@ -63,3 +63,13 @@ public class TimeCalculator {
     }
 
 }
+
+/*
+    Learning points :
+    Here we have done below things intentionally
+
+    1) Used expression over statement like early return instead of taking variable and changing it based on
+       condition, so we have promoting immutability.
+    2) Not promoting MAGIC NUMBERS by creating constants
+    3) Creating single layer of abstraction by creating methods like  isMoreThenOrEqualToHourSeconds(.)
+ */
