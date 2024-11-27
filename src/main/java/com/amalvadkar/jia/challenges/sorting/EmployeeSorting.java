@@ -28,13 +28,13 @@ import java.util.List;
  */
 public class EmployeeSorting {
 
+    public static final Comparator<Employee> EMPLOYEE_CUSTOM_COMPARATOR = Comparator.comparing(Employee::age)
+            .thenComparing(Comparator.comparing(Employee::salary).reversed())
+            .thenComparing(Employee::name);
+
     public static List<Employee> sort(List<Employee> employeeList){
         return employeeList.stream()
-                .sorted(
-                        Comparator.comparing(Employee::age)
-                                .thenComparing(Comparator.comparing(Employee::salary).reversed())
-                                .thenComparing(Employee::name)
-                )
+                .sorted(EMPLOYEE_CUSTOM_COMPARATOR)
                 .toList();
     }
 
