@@ -41,6 +41,9 @@ public class ChargeAccountValidator {
 //        }
 
         // Approach 4
+//        boolean isAccountNumberPresentInValidList = isNumberPresent(chargeAccountNumber, validChargeAccountNumbers);
+
+        // Approach 4
         // boolean test(T t);
 //        Predicate<Integer> isAccountNumberMatchPredicate = number -> chargeAccountNumber.equals(number);
         Predicate<Integer> isAccountNumberMatchPredicate = chargeAccountNumber::equals;
@@ -52,6 +55,15 @@ public class ChargeAccountValidator {
         } else {
             return "Charge account number is invalid";
         }
+    }
+
+    private static boolean isNumberPresent(Integer chargeAccountNumber, List<Integer> validChargeAccountNumbers) {
+        for (Integer validChargeAccountNumber : validChargeAccountNumbers) {
+            if (chargeAccountNumber.equals(validChargeAccountNumber)){
+               return true;
+            }
+        }
+        return false;
     }
 
     private static List<Integer> getValidChargeAccountNumberList() {
