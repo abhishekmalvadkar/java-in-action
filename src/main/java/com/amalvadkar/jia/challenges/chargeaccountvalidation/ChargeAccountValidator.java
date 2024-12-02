@@ -24,11 +24,29 @@ public class ChargeAccountValidator {
 
     public static String validateChargeAccountNumber(Integer chargeAccountNumber){
         List<Integer> validChargeAccountNumbers = getValidChargeAccountNumberList();
+
+        // Approach 1
+//         boolean isAccountNumberPresentInValidList = validChargeAccountNumbers.contains(chargeAccountNumber);
+
+        // Approach 2
+//         boolean isAccountNumberPresentInValidList =  validChargeAccountNumbers.indexOf(chargeAccountNumber) >=0;
+
+        // Approach 3
+//        boolean isAccountNumberPresentInValidList = false;
+//        for (Integer validChargeAccountNumber : validChargeAccountNumbers) {
+//            if (chargeAccountNumber.equals(validChargeAccountNumber)){
+//                isAccountNumberPresentInValidList = true;
+//                break;
+//            }
+//        }
+
+        // Approach 4
         // boolean test(T t);
 //        Predicate<Integer> isAccountNumberMatchPredicate = number -> chargeAccountNumber.equals(number);
         Predicate<Integer> isAccountNumberMatchPredicate = chargeAccountNumber::equals;
         boolean isAccountNumberPresentInValidList = validChargeAccountNumbers.stream()
                 .anyMatch(isAccountNumberMatchPredicate);
+
         if (isAccountNumberPresentInValidList){
             return "Charge account number is valid";
         } else {
