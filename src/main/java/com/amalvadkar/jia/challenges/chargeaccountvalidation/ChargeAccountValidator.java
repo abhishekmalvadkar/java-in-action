@@ -74,6 +74,8 @@ public class ChargeAccountValidator {
     }
 
     private static List<Integer> getValidChargeAccountNumberList() {
+
+        // Note : make sure we should able to read when run from jar
         ClassPathResource validAccountNumberFileResource = new ClassPathResource("valid-charge-account-numbers.txt");
 
         // Reading data from file - approach - 1
