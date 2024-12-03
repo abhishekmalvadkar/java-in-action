@@ -1,5 +1,10 @@
 package com.amalvadkar.jia.challenges.chargeaccountvalidation;
 
+import org.springframework.core.io.ClassPathResource;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -67,11 +72,27 @@ public class ChargeAccountValidator {
     }
 
     private static List<Integer> getValidChargeAccountNumberList() {
-        return List.of(
-                5658845, 4520125, 7895122, 8777541, 8451277, 1302850,
-                8080152, 4562555, 5552012, 5050552, 7825877, 1250255,
-                1005231, 6545231, 3852085, 7576651, 7881200, 4581002
-        );
+        ClassPathResource validAccountNumberFileResource = new ClassPathResource("valid-charge-account-numbers.txt");
+
+        try (BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(validAccountNumberFileResource.getInputStream()))) {
+           return bufferedReader.lines()
+                    .map(Integer::parseInt)
+                    .toList();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+//        return List.of(
+//                5658845, 4520125, 7895122, 8777541, 8451277, 1302850,
+//                8080152, 4562555, 5552012, 5050552, 7825877, 1250255,
+//                1005231, 6545231, 3852085, 7576651, 7881200, 4581002
+//        );
     }
 
 }
+
+
+/*
+    Communication is poor
+
+ */
