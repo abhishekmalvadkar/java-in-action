@@ -2,11 +2,13 @@ package com.amalvadkar.jia.challenges.chargeaccountvalidation;
 
 import org.springframework.core.io.ClassPathResource;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /*
     Charge Account Validation
@@ -74,19 +76,40 @@ public class ChargeAccountValidator {
     private static List<Integer> getValidChargeAccountNumberList() {
         ClassPathResource validAccountNumberFileResource = new ClassPathResource("valid-charge-account-numbers.txt");
 
-        try (BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(validAccountNumberFileResource.getInputStream()))) {
-           return bufferedReader.lines()
-                    .map(Integer::parseInt)
-                    .toList();
+        // Reading data from file - approach - 1
+        try {
+            Path path = Paths.get(validAccountNumberFileResource.getURI());
+            return readContent(path);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        // Reading data from file - approach - 2
+//        try (BufferedReader bufferedReader = new BufferedReader(
+//                new InputStreamReader(validAccountNumberFileResource.getInputStream()))) {
+//           return bufferedReader.lines()
+//                    .map(Integer::parseInt)
+//                    .toList();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        // Reading data direct
 //        return List.of(
 //                5658845, 4520125, 7895122, 8777541, 8451277, 1302850,
 //                8080152, 4562555, 5552012, 5050552, 7825877, 1250255,
 //                1005231, 6545231, 3852085, 7576651, 7881200, 4581002
 //        );
+    }
+
+    private static List<Integer> readContent(Path path) {
+        try (Stream<String> linesStream = Files.lines(path)) {
+            return linesStream
+                    .map(Integer::parseInt)
+                    .toList();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
