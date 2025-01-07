@@ -14,5 +14,7 @@ class StringProcessorTest {
                 .isEqualTo(2);
         assertThat(StringProcessor.countWord("I  am   good"))
                 .isEqualTo(3);
+        assertThat(StringProcessor.countWord("Bye"))
+                .isEqualTo(1);
     }
 }
