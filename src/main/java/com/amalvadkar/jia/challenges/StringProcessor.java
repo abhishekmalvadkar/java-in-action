@@ -1,5 +1,6 @@
 package com.amalvadkar.jia.challenges;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public interface StringProcessor {
@@ -30,6 +31,16 @@ public interface StringProcessor {
         // Approach 2 : Using predefined method
         StringBuilder reversedBuilder = new StringBuilder(content);
         return reversedBuilder.reverse().toString();
+    }
+
+    /*
+        Detect whether a string is a palindrome (case-insensitive).
+     */
+    static boolean isPalindrome(String content){
+        if (Objects.isNull(content)) return false;
+
+        String reversedContent = reverse(content);
+        return reversedContent.equalsIgnoreCase(content);
     }
 
 }

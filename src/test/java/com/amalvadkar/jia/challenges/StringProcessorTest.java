@@ -25,4 +25,16 @@ class StringProcessorTest {
         assertThat(StringProcessor.reverse("I am good"))
                 .isEqualTo("doog ma I");
     }
+
+    @Test
+    void isPalindrome() {
+        assertThat(StringProcessor.isPalindrome("mam"))
+                .isTrue();
+        assertThat(StringProcessor.isPalindrome("Mam"))
+                .isTrue();
+        assertThat(StringProcessor.isPalindrome(null))
+                .isFalse();
+        assertThat(StringProcessor.isPalindrome(""))
+                .isTrue();
+    }
 }
