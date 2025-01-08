@@ -19,11 +19,17 @@ public interface StringProcessor {
         Reverse a string while preserving the position of spaces.
      */
     static String reverse(String content){
-        StringBuilder reversedBuilder = new StringBuilder();
-        for (int i = content.length() - 1; i >= 0; i--) {
-            reversedBuilder.append(content.charAt(i));
-        }
-        return reversedBuilder.toString();
+
+        // Approach 1 : Very low level
+//        StringBuilder reversedBuilder = new StringBuilder();
+//        for (int i = content.length() - 1; i >= 0; i--) {
+//            reversedBuilder.append(content.charAt(i));
+//        }
+//        return reversedBuilder.toString();
+
+        // Approach 2 : Using predefined method
+        StringBuilder reversedBuilder = new StringBuilder(content);
+        return reversedBuilder.reverse().toString();
     }
 
 }
