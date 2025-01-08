@@ -17,4 +17,12 @@ class StringProcessorTest {
         assertThat(StringProcessor.countWord("Bye"))
                 .isEqualTo(1);
     }
+
+    @Test
+    void reverse() {
+        assertThat(StringProcessor.reverse("xyz"))
+                .isEqualTo("zyx");
+        assertThat(StringProcessor.reverse("I am good"))
+                .isEqualTo("doog ma I");
+    }
 }

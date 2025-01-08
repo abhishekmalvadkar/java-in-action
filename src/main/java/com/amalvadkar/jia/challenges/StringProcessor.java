@@ -15,4 +15,15 @@ public interface StringProcessor {
         // return content.split(ANY_NUMBER_OF_SPACE_DELIMETER).length;
     }
 
+    /*
+        Reverse a string while preserving the position of spaces.
+     */
+    static String reverse(String content){
+        StringBuilder reversedBuilder = new StringBuilder();
+        for (int i = content.length() - 1; i >= 0; i--) {
+            reversedBuilder.append(content.charAt(i));
+        }
+        return reversedBuilder.toString();
+    }
+
 }
