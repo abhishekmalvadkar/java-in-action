@@ -3,18 +3,24 @@ package com.amalvadkar.jia.challenges;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class StreamPlayGround {
 
     public static int secondHighestNumber(List<Integer> numbers){
-        Comparator<Integer> intNaturalSortingComparator =
-                Comparator.comparing(Function.identity());
-        Comparator<Integer> intDescindingOrderComparator =
-                intNaturalSortingComparator.reversed();
         return collectionStream(numbers)
-                .sorted(intDescindingOrderComparator)
+                .sorted(new Comparator<Integer>() {
+                    @Override
+                    public int compare(Integer o1, Integer o2) {
+                        if (o1 > o2){
+                            return - 1;
+                        }
+                        if (o1 < o2){
+                            return 1;
+                        }
+                        return 0;
+                    }
+                })
                 .skip(1)
                 .limit(1)
                 .findFirst()
