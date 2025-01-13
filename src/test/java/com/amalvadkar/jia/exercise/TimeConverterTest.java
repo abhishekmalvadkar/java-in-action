@@ -12,6 +12,8 @@ class TimeConverterTest {
                 .isEqualTo(120);
         assertThat(TimeConverter.convertHoursToMinutes(5))
                 .isEqualTo(300);
+        assertThat(TimeConverter.convertHoursToMinutes(-4))
+                .isEqualTo(-1);
     }
 
     @Test
@@ -20,5 +22,7 @@ class TimeConverterTest {
                 .isEqualTo(1440);
         assertThat(TimeConverter.convertDaysToMinutes(5))
                 .isEqualTo(7200);
+        assertThat(TimeConverter.convertDaysToMinutes(-5))
+                .isEqualTo(-1);
     }
 }

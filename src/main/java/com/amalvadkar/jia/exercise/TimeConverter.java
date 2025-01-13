@@ -11,6 +11,8 @@ public class TimeConverter {
             2 h -> 60 * 2 minutes
             N h -> 60 * N minutes
          */
+        if (hours < 0) return -1;
+
         return hours * MINUTES_IN_ONE_HOUR;
     }
 
@@ -20,6 +22,8 @@ public class TimeConverter {
             1 hour -> 60 minutes
             24 hours -> 24 * 60 minutes
          */
+        if (days < 0) return -1;
+
         int hoursInInputDay = days * HOURS_IN_ONE_DAY;
         return hoursInInputDay * MINUTES_IN_ONE_HOUR;
     }
