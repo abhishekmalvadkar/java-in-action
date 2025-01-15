@@ -1,18 +1,21 @@
 package com.amalvadkar.jia.exercise;
 
+import java.util.stream.IntStream;
+
 public class SumOfSquares {
 
     public static int calculateSumOfSquares(int n) {
-        if (n == 0){
+        if (n < 0){
             return -1;
         }
 
         // e.g n = 2 -> 1^2 + 2^2 = 1 + 4 = 5
-        int sum = 0;
-        for (int i = 1; i <= n; i++) {
-            int square = i * i;
-            sum = sum + square;
-        }
-        return sum;
+        return IntStream.rangeClosed(1, n)
+                .map(SumOfSquares::square)
+                .sum();
+    }
+
+    private static int square(int index) {
+        return index * index;
     }
 }
