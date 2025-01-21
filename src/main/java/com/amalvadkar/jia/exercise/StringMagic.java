@@ -1,8 +1,15 @@
 package com.amalvadkar.jia.exercise;
 
+import java.util.Objects;
+
 public class StringMagic {
 
     public static int countUppercaseLetter(String content){
+
+        if (Objects.isNull(content)) {
+            return -1;
+        }
+
         int uppercaseLetterCount = 0;
 
         // Approach 1 - Low level code
