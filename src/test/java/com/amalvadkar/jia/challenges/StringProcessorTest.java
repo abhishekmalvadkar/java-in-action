@@ -37,4 +37,12 @@ class StringProcessorTest {
         assertThat(StringProcessor.isPalindrome(""))
                 .isTrue();
     }
+
+    @Test
+    void should_transform_content_in_title_case(){
+        assertThat(StringProcessor.titleCase("hello world"))
+                .isEqualTo("Hello World");
+        assertThat(StringProcessor.titleCase("java programming LANGUAGE"))
+                .isEqualTo("Java Programming Language");
+    }
 }

@@ -1,15 +1,17 @@
 package com.amalvadkar.jia.challenges;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
 public interface StringProcessor {
 
-    String ANY_NUMBER_OF_SPACE_DELIMETER = "\\s+";
+    String ANY_NUMBER_OF_SPACE_DELIMITER = "\\s+";
 
     static int countWord(String content){
         // Approach 1 - screaming that we need regex
-       return Pattern.compile(ANY_NUMBER_OF_SPACE_DELIMETER)
+       return Pattern.compile(ANY_NUMBER_OF_SPACE_DELIMITER)
                 .split(content).length;
 
         // Approach 2 - Not screaming that we need regex so developer can do mistake by passing just literal which can be understandable in different wat (e.g .(dot means any character))
@@ -43,4 +45,27 @@ public interface StringProcessor {
         return reversedContent.equalsIgnoreCase(content);
     }
 
+    static String titleCase(String content) {
+        String[] words = Pattern.compile(ANY_NUMBER_OF_SPACE_DELIMITER).split(content);
+        List<String> titleCaseWords = new ArrayList<>();
+        for (String word : words) {
+            String titleCaseWord = convertToTitleCase(word);
+            titleCaseWords.add(titleCaseWord);
+        }
+        return String.join(" ", titleCaseWords);
+    }
+
+    static String convertToTitleCase(String word) {
+        StringBuilder titleCaseWorldBuilder = new StringBuilder();
+        for (int i = 0; i < word.length(); i++) {
+            char currentChar = word.charAt(i);
+            if (i == 0){
+                titleCaseWorldBuilder.append(Character.toUpperCase(currentChar));
+            } else {
+                titleCaseWorldBuilder.append(Character.toLowerCase(currentChar));
+            }
+
+        }
+        return titleCaseWorldBuilder.toString();
+    }
 }
