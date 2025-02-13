@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public interface StringProcessor {
 
     String ANY_NUMBER_OF_SPACE_DELIMITER = "\\s+";
+    String WHITESPACE = " ";
 
     static int countWord(String content){
         // Approach 1 - screaming that we need regex
@@ -52,7 +53,7 @@ public interface StringProcessor {
             String titleCaseWord = convertToTitleCase(word);
             titleCaseWords.add(titleCaseWord);
         }
-        return String.join(" ", titleCaseWords);
+        return String.join(WHITESPACE, titleCaseWords);
     }
 
     static String convertToTitleCase(String word) {
