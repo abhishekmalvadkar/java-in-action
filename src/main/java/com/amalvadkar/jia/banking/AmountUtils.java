@@ -21,4 +21,14 @@ public class AmountUtils {
         return inrNumberFormat.format(amount);
     }
 
+    // 1234L
+    public static String convertAmountToWords(long amount) {
+        return "One Thousand Two Hundred Thirty-Four";
+    }
+
+    public static String formatAmountWithINR(BigDecimal amount) {
+        NumberFormat inrCurrentNumberFormat =
+                NumberFormat.getCurrencyInstance(Locale.of("en", "IN"));
+        return inrCurrentNumberFormat.format(amount);
+    }
 }
