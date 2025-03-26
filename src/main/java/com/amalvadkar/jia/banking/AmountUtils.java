@@ -31,4 +31,10 @@ public class AmountUtils {
                 NumberFormat.getCurrencyInstance(Locale.of("en", "IN"));
         return inrCurrentNumberFormat.format(amount);
     }
+
+    public static String convertCurrencyFromINR(BigDecimal inrAmount, BigDecimal exchangeRate, Locale destinationCurrentLocale) {
+        BigDecimal convertedAmount = inrAmount.multiply(exchangeRate);
+        return NumberFormat.getCurrencyInstance(destinationCurrentLocale)
+                .format(convertedAmount);
+    }
 }
