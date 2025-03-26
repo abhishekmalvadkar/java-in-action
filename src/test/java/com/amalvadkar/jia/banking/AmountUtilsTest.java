@@ -30,23 +30,24 @@ class AmountUtilsTest {
     }
 
     @Test
-    void should_perform_currency_conversion() {
+    void should_perform_currency_conversion_from_inr_amount() {
         /*
             1 INR = 0.012 USD
             1000 INR = ? -> 1000 * 0.012 = $ 12.00
          */
-        assertThat(AmountUtils.convertCurrencyFromINR(
-                new BigDecimal("1000") ,
-                new BigDecimal("0.012") ,
-                Locale.of("en", "US")))
+        BigDecimal inrAmount = new BigDecimal("1000");
+        BigDecimal exchangeRate = new BigDecimal("0.012");
+        Locale destinationCurrencyLocale = Locale.of("en", "US");
+        assertThat(AmountUtils.convertCurrencyFromINR(inrAmount, exchangeRate,
+                destinationCurrencyLocale))
                 .isEqualTo("$12.00");
          /*
             1 INR = 0.85 EUR
             75000 INR = ? -> 75000 * 0.85 = 63750.00
          */
         assertThat(AmountUtils.convertCurrencyFromINR(
-                new BigDecimal("75000") ,
-                new BigDecimal("0.85") ,
+                new BigDecimal("75000"),
+                new BigDecimal("0.85"),
                 Locale.of("en", "IE")))
                 .isEqualTo("€63,750.00");
 
