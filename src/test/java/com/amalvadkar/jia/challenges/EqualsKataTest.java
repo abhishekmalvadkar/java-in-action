@@ -35,6 +35,11 @@ class EqualsKataTest {
                 new Task(1L, "Daily meeting", LocalDate.now(), "Pending"),
                 "My task"
         )).isFalse();
+
+        assertThat(EqualsKata.run(
+                null,
+                new Task(1L, "Daily meeting", LocalDate.now(), "Pending")
+        )).isFalse();
     }
 
     private static Object getSecond() {

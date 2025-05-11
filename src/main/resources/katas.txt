@@ -1,0 +1,5 @@
+1) Check given input character is digit or not?
+2) Check given input character is alphabet or not?
+3) Check given input character is other symbol or not?
+4) Give sum of all digits form passed integer.
+5) Give sum of n natural number's sum.
