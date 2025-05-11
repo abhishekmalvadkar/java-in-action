@@ -1,5 +1,6 @@
 package com.amalvadkar.jia.ch1;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -9,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BirthdayAgeRevisitedTest {
 
     @Test
+    @Disabled("This test is dependent on date and time and hence disabled")
     void provideAge() {
         assertThat(BirthdayAgeRevisited.provideAge(
                 new EmployeeEntity(1L, "user1",
